@@ -1,11 +1,12 @@
+
+
+import okkkkkk from "./Component/Devnput";
 function App() {
   return (
     <>
-    <div className="container">
-      <div class="row">
-        
-      </div>
-    </div>
+    {
+  okkkkkk()
+    }
     <h1>Hellow Bangladesh</h1>
     </>
     
