@@ -1,12 +1,16 @@
+import input from './Component/Input';
 
-
-import okkkkkk from "./Component/Devnput";
+//import okkkkkk from "./Component/Devnput";
 function App() {
   return (
     <>
     {
-  okkkkkk()
+      input()
     }
+    {/* <input/>
+    {
+  okkkkkk()
+    } */}
     <h1>Hellow Bangladesh</h1>
     </>
     
