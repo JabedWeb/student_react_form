@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Input = () => {
 
@@ -26,6 +27,24 @@ const Input = () => {
             })
         }
         else{
+
+
+            axios.post('http://localhost:5050/users',{
+                name : name,
+                email : email
+            }).then(res=>{
+                setalert({
+                    msg : 'Data Stable',
+                    type : 'Success',
+                    status : true
+                })
+                setinput ({
+                    name : ' ',
+                    email : ' '
+                })
+            }).catch(error=>{
+                console.log(error);
+            })
             setalert({
                 msg : 'Data Stable',
                 type : 'Success',
@@ -45,6 +64,22 @@ const Input = () => {
             status :false
         })
     }
+
+    const [users,setUsers]=useState([])
+    console.log(users)
+    useEffect(()=>{
+        axios.get('http://localhost:5050/users').then(res=>{
+            setUsers(res.data)
+        })
+    },[users])
+
+    const handleDeled =(id) =>{
+        axios.delete('http://localhost:5050/users/'+id).then(res=>{
+        
+        })
+    }
+
+
 
     return ( 
         <div className="container">
@@ -69,6 +104,38 @@ const Input = () => {
                             <input className="btn btn-primary" type="submit" />
                         </div>
                         </form>
+                    </div>
+                </div>
+                <div className="col-md-8">
+                    <div className="card">
+                        <div className="card-body">
+                            <table className="table">
+                            <thead>
+
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                users.map((data,index)=>
+                                <tr>
+                            <th scope="row">1</th>
+                            <td>{index+1}</td>
+                            <td>{data.name}</td>
+                            <td>{data.email}</td>
+                            <td><button onClick={ ()=> handleDeled(data.id)} className="btn btn-primary btn-sm">Deled</button></td>
+                           
+                            </tr>
+                                    )
+                            }
+                            
+                        </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
