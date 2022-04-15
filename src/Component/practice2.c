@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>  
 int Shahin=0, Lubaba=0, Joy=0, Johir=0;
-void electionResult()
+void votingResult()
 {
     char username[30]; 
     char password[12]; 
@@ -10,7 +10,7 @@ void electionResult()
     scanf("%s",&username); 
     printf("Enter your password:\n"); 
     scanf("%s",&password);  
-    if(strcmp(username,"Solaiman")==0 && strcmp(password,"123")==0){
+    if(strcmp(username,"Mentor")==0 && strcmp(password,"123")==0){
         printf("\nWelcome.Login Success!");
         int wonByVote;
         if(Shahin == Lubaba && Shahin == Joy && Shahin == Johir)
@@ -88,7 +88,6 @@ void calculateVote(int vote)
     }
 }
 
-
 int main()
 {
     int choose;
@@ -116,7 +115,7 @@ int main()
         }
         if (choose==5)
         {
-            electionResult();
+            votingResult();
         }else
         {
             calculateVote(choose);            
