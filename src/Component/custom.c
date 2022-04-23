@@ -1,6 +1,9 @@
 #include<stdio.h>
+#include<conio.h>
+#include <stdlib.h>
 int main()
 {
+    system ("color 04");
     int num,k,i,count=0;
     for(i=1; i<=10; i++)
 {

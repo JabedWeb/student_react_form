@@ -3,7 +3,7 @@
 int Shahin=0, Lubaba=0, Joy=0, Johir=0;
 void electionResult()
 {
-    
+
     int wonByVote;
     if (Shahin > Lubaba && Shahin > Joy && Shahin > Johir)
     {
